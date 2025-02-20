@@ -4,10 +4,10 @@ from fastai.vision.core import PILImage
 from matplotlib import pyplot as plt
 
 # Title
-st.title("Hayvonlarni klassifikatsiya qiluvchi model")
+st.title("Hayvonlarni klassifikatsiya qiluvchi model (Bear, Bird, Fish)")
 
 # Rasm yuklash
-file = st.file_uploader("Rasm yuklash", type=['png', 'jpg', 'jpeg'])
+file = st.file_uploader("Rasm yuklash", type=['png', 'jpg'])
 
 if file:
     st.image(file, caption="Yuklangan rasm")
@@ -29,9 +29,7 @@ if file:
 
     # Create a bar chart
     ax.bar(model.dls.vocab, probs * 100)  # Convert to percentage
-    ax.set_xlabel('Class')
     ax.set_ylabel('Probability (%)')
-    ax.set_title('Class Probabilities')
 
     # Show plot in Streamlit
     st.pyplot(fig)
